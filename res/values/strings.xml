@@ -4,17 +4,14 @@
 	<string name="activity_log_view">Log Viewer</string>
 	<string name="menu_more">More</string>
 	<string name="menu_exit">Exit</string>	
-	<string name="dialog_more">Version 1.33
+	<string name="dialog_more">+ Type the number of dice to roll in \"Number\" column
+								\n+ Type the modifier (optional) to be added or subtracted in \"Modifier\" column
+								\n+ Note: to add or subtract the modifier, use the \"+/-\" button
+								\n+ Press \"Roll\" or shake the device to get the result as if you rolled the dice in the real world ;)
 								\n
-								\n- Type the number of dice to roll in \"Number\" column
-								\n- Type the modifier (optional) to be added or subtracted in \"Modifier\" column
-								\n- Note: to add or subtract the modifier, use the \"+/-\" button
-								\n- Press \"Roll\" to get the result as if you rolled the dice in the real world ;)
-								\n
-								\n- Using the \"Log\" button, you can review your latest rolls.
+								\n+ Using the \"Log\" button, you can review your latest rolls
 								\n
 								\n Thank you very much for installing the app! :)
-								\n
 								\n More info @ www.tarlic.com</string>
 	<string name="dialog_exit">Are you sure you want to exit?</string>
 	<string name="d4text">4</string>

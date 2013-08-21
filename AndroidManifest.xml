@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	android:versionName="2.2" android:versionCode="7" package="com.tarlic.RPGDiceRoller">
+	android:versionName="2.3" android:versionCode="9" package="com.tarlic.RPGDiceRoller">
 
 <uses-sdk android:minSdkVersion="7" 
           android:targetSdkVersion="17"
           android:maxSdkVersion="17" />
+
+	<uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
 
 	<application android:label="@string/app_name" android:icon="@drawable/ic_launcher"
 	    android:allowBackup="true">
@@ -26,7 +28,6 @@
 		<activity android:name=".LogView" android:label="@string/activity_log_view" android:theme="@style/AppBaseTheme"></activity>
 
 	</application>
-
         
 </manifest> 
 

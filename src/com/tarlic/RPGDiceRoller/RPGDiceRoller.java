@@ -4,10 +4,14 @@ import java.sql.Date;
 import java.util.Random;
 import java.util.TreeMap;
 
+import com.tarlic.RPGDiceRoller.ShakeDetector.OnShakeListener;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,7 +30,14 @@ public class RPGDiceRoller extends Activity {
 	static final String PLUS = "+";
 	static final String MINUS = "-";
 	
+	static final String ZERO = "0";
+	
 	final TreeMap<Date, String> log = new TreeMap<Date, String>(new DateComparator());
+	
+	// The following are used for the shake detection
+	private SensorManager mSensorManager;
+	private Sensor mAccelerometer;
+	private ShakeDetector mShakeDetector;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {    	
@@ -40,8 +51,7 @@ public class RPGDiceRoller extends Activity {
     	 getWindow().setSoftInputMode(
     			    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     	
-    	// Disable the input for some text fields
-    	 
+    	// Disable the input for some text fields    	 
     	disableEditTextResults(R.id.EditTextResultsD4);
     	disableEditTextResults(R.id.EditTextResultsD6);
     	disableEditTextResults(R.id.EditTextResultsD8);
@@ -49,6 +59,19 @@ public class RPGDiceRoller extends Activity {
     	disableEditTextResults(R.id.EditTextResultsD100);
     	disableEditTextResults(R.id.EditTextResultsD12);
     	disableEditTextResults(R.id.EditTextResultsD20);
+    	
+		// ShakeDetector initialization
+		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+		mAccelerometer = mSensorManager
+				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		mShakeDetector = new ShakeDetector();
+		mShakeDetector.setOnShakeListener(new OnShakeListener() {
+
+			@Override
+			public void onShake(int count) {				
+				handleShakeEvent(count);
+			}
+		});
     	
     }
     
@@ -75,44 +98,7 @@ public class RPGDiceRoller extends Activity {
     public void buttonRollClick (View view)
     {
     	
-    	if ( view.getId() == R.id.ButtonRollD4 )
-    	{	
-    		processButtonRollClick(R.id.EditTextNumberD4, R.id.EditTextModifierD4,
-    					R.id.EditTextResultsD4, Integer.parseInt(getString(R.string.d4text)),
-    					R.id.ButtonPlusMinusD4);
-    	} else if ( view.getId() == R.id.ButtonRollD6 )
-    	{	
-    		processButtonRollClick(R.id.EditTextNumberD6, R.id.EditTextModifierD6,
-    					R.id.EditTextResultsD6, Integer.parseInt(getString(R.string.d6text)),
-    					R.id.ButtonPlusMinusD6);
-    	} else if ( view.getId() == R.id.ButtonRollD8 )
-    	{	
-    		processButtonRollClick(R.id.EditTextNumberD8, R.id.EditTextModifierD8,
-    					R.id.EditTextResultsD8, Integer.parseInt(getString(R.string.d8text)),
-    					R.id.ButtonPlusMinusD8);
-    	} else if ( view.getId() == R.id.ButtonRollD10 )
-    	{	
-    		processButtonRollClick(R.id.EditTextNumberD10, R.id.EditTextModifierD10,
-    					R.id.EditTextResultsD10, Integer.parseInt(getString(R.string.d10text)),
-    					R.id.ButtonPlusMinusD10);
-    	} else if ( view.getId() == R.id.ButtonRollD100 )
-    	{	
-    		processButtonRollClick(R.id.EditTextNumberD100, R.id.EditTextModifierD100,
-    					R.id.EditTextResultsD100, Integer.parseInt(getString(R.string.d100text)),
-    					R.id.ButtonPlusMinusD100);
-    	} else if ( view.getId() == R.id.ButtonRollD12 )
-    	{	
-    	    		processButtonRollClick(R.id.EditTextNumberD12, R.id.EditTextModifierD12,
-    	    					R.id.EditTextResultsD12, Integer.parseInt(getString(R.string.d12text)),
-    	    					R.id.ButtonPlusMinusD12);
-    	    	
-    	} else if ( view.getId() == R.id.ButtonRollD20 )
-    	{	
-    	    		processButtonRollClick(R.id.EditTextNumberD20, R.id.EditTextModifierD20,
-    	    					R.id.EditTextResultsD20, Integer.parseInt(getString(R.string.d20text)),
-    	    					R.id.ButtonPlusMinusD20);
-    	}
-    	
+    	roll(view.getId());
     }    
     
     private void processButtonRollClick(int idEditTextNumber, int idEditTextModifier,
@@ -143,38 +129,41 @@ public class RPGDiceRoller extends Activity {
 		   System.out.println("Could not parse " + nfe);		  
 		}
 		
-		for (Integer i = number; i > 0; i--)
+		// If both fields aren't zeros		
+		if (number != 0 || modifier != 0)
 		{
-			resultsTmp = r.nextInt(dieType) + 1;
-			results = resultsTmp + results;    			
+			for (Integer i = number; i > 0; i--)
+			{
+				resultsTmp = r.nextInt(dieType) + 1;
+				results = resultsTmp + results;    			
+			}
+			
+			// Check if the modifier is to add or subtract
+			if (buttonPlusMinus.getText().toString().equals(PLUS))
+				results = results + modifier;
+			else if (buttonPlusMinus.getText().toString().equals(MINUS))
+				results = results - modifier;
+			else showMsg(buttonPlusMinus.getText().toString());
+					
+			editTextResults.setText(String.valueOf(results));
+			
+			String logString = null;
+			
+			// Begin the log and check if the button has plus or minus sign		
+			if (buttonPlusMinus.getText().toString().equals(PLUS))
+				logString = String.valueOf(number) + "d" + String.valueOf(dieType) + " + ";						
+			else if (buttonPlusMinus.getText().toString().equals(MINUS))
+				logString = String.valueOf(number) + "d" + String.valueOf(dieType) + " - ";		
+			else showMsg(buttonPlusMinus.getText().toString());
+			
+			// if modifier is blank, it is necessary to add the 0 manually
+			logString = logString + String.valueOf(modifier) + " = " + String.valueOf(results);
+			
+			// add logString to the TreeMap
+			log.put(new Date(System.currentTimeMillis()), logString);
+		} else { // Both fields are zeros
+			editTextResults.setText(ZERO);
 		}
-		
-		// Check if the modifier is to add or subtract
-		if (buttonPlusMinus.getText().toString().equals(PLUS))
-			results = results + modifier;
-		else if (buttonPlusMinus.getText().toString().equals(MINUS))
-			results = results - modifier;
-		else showMsg(buttonPlusMinus.getText().toString());
-				
-		editTextResults.setText(String.valueOf(results));
-		
-		String logString = null;
-		
-		// begin the log and check if the button has plus or minus sign		
-		if (buttonPlusMinus.getText().toString().equals(PLUS))
-			logString = String.valueOf(number) + "d" + String.valueOf(dieType) + " + ";						
-		else if (buttonPlusMinus.getText().toString().equals(MINUS))
-			logString = String.valueOf(number) + "d" + String.valueOf(dieType) + " - ";		
-		else showMsg(buttonPlusMinus.getText().toString());
-		
-		// if modifier is blank, it is necessary to add the 0 manually
-		logString = logString + String.valueOf(modifier) + " = " + String.valueOf(results);
-		
-		
-		// add logString to the TreeMap
-		log.put(new Date(System.currentTimeMillis()), logString);
-		
-		 
    }
     
     public void buttonViewLogClick(View view) {
@@ -258,6 +247,74 @@ public class RPGDiceRoller extends Activity {
         alert.show();
    }
 
+    private void handleShakeEvent(int count)
+    {	
+    	// Roll all dice    	
+    	roll(R.id.ButtonRollD4);
+    	roll(R.id.ButtonRollD6);
+    	roll(R.id.ButtonRollD8);
+    	roll(R.id.ButtonRollD10);
+    	roll(R.id.ButtonRollD100);
+    	roll(R.id.ButtonRollD12);
+    	roll(R.id.ButtonRollD20);
+    }
+
+    private void roll(int id) {
+		
+    	if ( id == R.id.ButtonRollD4 )
+    	{	
+    		processButtonRollClick(R.id.EditTextNumberD4, R.id.EditTextModifierD4,
+    					R.id.EditTextResultsD4, Integer.parseInt(getString(R.string.d4text)),
+    					R.id.ButtonPlusMinusD4);
+    	} else if ( id == R.id.ButtonRollD6 )
+    	{	
+    		processButtonRollClick(R.id.EditTextNumberD6, R.id.EditTextModifierD6,
+    					R.id.EditTextResultsD6, Integer.parseInt(getString(R.string.d6text)),
+    					R.id.ButtonPlusMinusD6);
+    	} else if ( id == R.id.ButtonRollD8 )
+    	{	
+    		processButtonRollClick(R.id.EditTextNumberD8, R.id.EditTextModifierD8,
+    					R.id.EditTextResultsD8, Integer.parseInt(getString(R.string.d8text)),
+    					R.id.ButtonPlusMinusD8);
+    	} else if ( id == R.id.ButtonRollD10 )
+    	{	
+    		processButtonRollClick(R.id.EditTextNumberD10, R.id.EditTextModifierD10,
+    					R.id.EditTextResultsD10, Integer.parseInt(getString(R.string.d10text)),
+    					R.id.ButtonPlusMinusD10);
+    	} else if ( id == R.id.ButtonRollD100 )
+    	{	
+    		processButtonRollClick(R.id.EditTextNumberD100, R.id.EditTextModifierD100,
+    					R.id.EditTextResultsD100, Integer.parseInt(getString(R.string.d100text)),
+    					R.id.ButtonPlusMinusD100);
+    	} else if ( id == R.id.ButtonRollD12 )
+    	{	
+    		processButtonRollClick(R.id.EditTextNumberD12, R.id.EditTextModifierD12,
+    					R.id.EditTextResultsD12, Integer.parseInt(getString(R.string.d12text)),
+    					R.id.ButtonPlusMinusD12);
+    	    	
+    	} else if ( id == R.id.ButtonRollD20 )
+    	{	
+    		processButtonRollClick(R.id.EditTextNumberD20, R.id.EditTextModifierD20,
+    					R.id.EditTextResultsD20, Integer.parseInt(getString(R.string.d20text)),
+    					R.id.ButtonPlusMinusD20);
+    	}
+    	
+	}
+
+	@Override
+    public void onResume() {
+        super.onResume();
+        // Add the following line to register the Session Manager Listener onResume
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+    }
+ 
+    @Override
+    public void onPause() {
+        // Add the following line to unregister the Sensor Manager onPause
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
+    }
+    
     private void showMsg(String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -273,6 +330,7 @@ public class RPGDiceRoller extends Activity {
 
         alert.show();
    }
+    
     
 };
 
