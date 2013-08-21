@@ -4,7 +4,7 @@
     android:layout_width="fill_parent" android:layout_height="fill_parent"
     android:scrollbars="vertical">
 
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout 
 	android:id="@+id/tableLayout1" android:layout_width="fill_parent"
 	android:layout_height="wrap_content" android:shrinkColumns="*"
 	android:stretchColumns="*">
@@ -13,178 +13,128 @@
 		android:layout_width="fill_parent" android:gravity="center_horizontal">
 		<TextView android:id="@+id/textView9" android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:textStyle="bold"
-			android:typeface="serif" android:textSize="18dp" android:gravity="center"
+			android:typeface="serif" android:textSize="18sp" android:gravity="center"
 			android:layout_span="6" android:text="@string/header_tabletitle"></TextView>
 	</TableRow>
 	
 	<TableRow android:id="@+id/tableRow1" android:layout_height="wrap_content"
 		android:layout_width="fill_parent">
-		<TextView android:id="@+id/Die" android:textStyle="bold"
-			android:typeface="serif" android:text="@string/header_die"></TextView>
-		<TextView android:id="@+id/TextView04" android:textStyle="bold"
-			android:typeface="serif" android:text="@string/header_nbr" android:gravity="center"></TextView>
-		<TextView android:id="@+id/TextView03" android:textStyle="bold"
-			android:typeface="serif" android:text="@string/header_plus_minus" android:gravity="center"></TextView>
-		<TextView android:id="@+id/TextView02" android:textStyle="bold"
-			android:typeface="serif" android:text="@string/header_modifier" android:gravity="center"></TextView>
-		<TextView android:id="@+id/TextView01" android:textStyle="bold"
-			android:typeface="serif"></TextView>
-		<TextView android:id="@+id/TextView00" android:textStyle="bold"
-			android:typeface="serif" android:text="@string/header_results" android:gravity="center"></TextView>
+		<TextView android:id="@+id/Die"
+		    android:text="@string/header_die"
+		    style="@style/ColumnTitleTheme"></TextView>
+		<TextView android:id="@+id/TextView04" 
+			android:text="@string/header_nbr"
+			style="@style/ColumnTitleTheme"></TextView>
+		<TextView android:id="@+id/TextView03" 
+			android:text="@string/header_plus_minus"
+			style="@style/ColumnTitleTheme"></TextView>
+		<TextView android:id="@+id/TextView02" 
+			android:text="@string/header_modifier"
+			style="@style/ColumnTitleTheme"></TextView>
+		<TextView android:id="@+id/TextView01" 
+			android:textIsSelectable="false"
+			style="@style/ColumnTitleTheme"></TextView>
+		<TextView android:id="@+id/TextView00" 
+			android:text="@string/header_results"
+			style="@style/ColumnTitleTheme"></TextView>
 	</TableRow>
 	<TableRow android:layout_height="wrap_content" 
 		android:layout_width="fill_parent">
-		<TextView android:id="@+id/textView2" android:textStyle="bold"
-			android:text="@string/d4text"></TextView>		
-		<EditText android:id="@+id/EditTextNumberD4" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonPlusMinusD4" android:text="@string/plus_text" 
-			android:gravity="center" android:onClick="buttonPlusMinusClick"></Button>
+		<TextView android:text="@string/d4text"></TextView>		
+		<EditText android:id="@+id/EditTextNumberD4"
+		    style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonPlusMinusD4"
+		    style="@style/ButtonPlusMinus"/>
 		<EditText android:id="@+id/EditTextModifierD4" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonRollD4" android:text="@string/roll_text"
-			android:gravity="center" android:onClick="buttonRollClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonRollD4"
+		    style="@style/ButtonRoll"/>
 		<EditText android:id="@+id/EditTextResultsD4" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="4" android:numeric="integer" android:singleLine="true"
-			android:inputType="none" android:hint="@string/zerotext"
-			android:editable="false"/>
+			style="@style/InputEditText.OutputEditText"/>
 	</TableRow>
 	<TableRow android:layout_height="wrap_content" 
 		android:layout_width="fill_parent">
-		<TextView   android:textStyle="bold"
-			android:text="@string/d6text"></TextView>		
+		<TextView android:text="@string/d6text"></TextView>		
 		<EditText android:id="@+id/EditTextNumberD6" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonPlusMinusD6" android:text="@string/plus_text" 
-			android:gravity="center" android:onClick="buttonPlusMinusClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonPlusMinusD6"
+		    style="@style/ButtonPlusMinus"/>
 		<EditText android:id="@+id/EditTextModifierD6" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonRollD6" android:text="@string/roll_text"
-			android:gravity="center" android:onClick="buttonRollClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonRollD6"
+		    style="@style/ButtonRoll"/>
 		<EditText android:id="@+id/EditTextResultsD6" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="4" android:numeric="integer" android:singleLine="true"
-			android:inputType="none" android:hint="@string/zerotext"
-			android:editable="false" />
+			style="@style/InputEditText.OutputEditText"/>
 	</TableRow>
 	<TableRow android:layout_height="wrap_content" 
 		android:layout_width="fill_parent">
-		<TextView   android:textStyle="bold"
-			android:text="@string/d8text"></TextView>		
+		<TextView android:text="@string/d8text"></TextView>		
 		<EditText android:id="@+id/EditTextNumberD8" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonPlusMinusD8" android:text="@string/plus_text" 
-			android:gravity="center" android:onClick="buttonPlusMinusClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonPlusMinusD8"
+		    style="@style/ButtonPlusMinus"/>
 		<EditText android:id="@+id/EditTextModifierD8" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonRollD8" android:text="@string/roll_text"
-			android:gravity="center" android:onClick="buttonRollClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonRollD8"
+		    style="@style/ButtonRoll"/>
 		<EditText android:id="@+id/EditTextResultsD8" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="4" android:numeric="integer" android:singleLine="true"
-			android:inputType="none" android:hint="@string/zerotext"
-			android:editable="false" />
+			style="@style/InputEditText.OutputEditText"/>
 	</TableRow>
 	<TableRow android:layout_height="wrap_content"  
 		android:layout_width="fill_parent">
-		<TextView   android:textStyle="bold"
-			android:text="@string/d10text"></TextView>		
+		<TextView android:text="@string/d10text"></TextView>		
 		<EditText android:id="@+id/EditTextNumberD10" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonPlusMinusD10" android:text="@string/plus_text" 
-			android:gravity="center" android:onClick="buttonPlusMinusClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonPlusMinusD10"
+		    style="@style/ButtonPlusMinus"/>
 		<EditText android:id="@+id/EditTextModifierD10" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonRollD10" android:text="@string/roll_text"
-			android:gravity="center" android:onClick="buttonRollClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonRollD10"
+		    style="@style/ButtonRoll"/>
 		<EditText android:id="@+id/EditTextResultsD10" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="4" android:numeric="integer" android:singleLine="true"
-			android:inputType="none" android:hint="@string/zerotext"
-			android:editable="false" />
+			style="@style/InputEditText.OutputEditText"/>
 	</TableRow>
 	<TableRow android:layout_height="wrap_content"  
 		android:layout_width="fill_parent">
-		<TextView   android:textStyle="bold"
-			android:text="@string/d100text"></TextView>		
+		<TextView android:text="@string/d100text"></TextView>		
 		<EditText android:id="@+id/EditTextNumberD100" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonPlusMinusD100" android:text="@string/plus_text" 
-			android:gravity="center" android:onClick="buttonPlusMinusClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonPlusMinusD100"
+			style="@style/ButtonPlusMinus"/>
 		<EditText android:id="@+id/EditTextModifierD100" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonRollD100" android:text="@string/roll_text"
-			android:gravity="center" android:onClick="buttonRollClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonRollD100"
+		    style="@style/ButtonRoll"/>
 		<EditText android:id="@+id/EditTextResultsD100" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="4" android:numeric="integer" android:singleLine="true"
-			android:inputType="none" android:hint="@string/zerotext"
-			android:editable="false" />
+			style="@style/InputEditText.OutputEditText"/>
 	</TableRow>
 	<TableRow android:layout_height="wrap_content"  
 		android:layout_width="fill_parent">
-		<TextView   android:textStyle="bold"
-			android:text="@string/d12text"></TextView>		
+		<TextView android:text="@string/d12text"></TextView>		
 		<EditText android:id="@+id/EditTextNumberD12" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonPlusMinusD12" android:text="@string/plus_text" 
-			android:gravity="center" android:onClick="buttonPlusMinusClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonPlusMinusD12"
+		    style="@style/ButtonPlusMinus"/>
 		<EditText android:id="@+id/EditTextModifierD12" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonRollD12" android:text="@string/roll_text"
-			android:gravity="center" android:onClick="buttonRollClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonRollD12"
+			style="@style/ButtonRoll"/>
 		<EditText android:id="@+id/EditTextResultsD12" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="4" android:numeric="integer" android:singleLine="true"
-			android:inputType="none" android:hint="@string/zerotext"
-			android:editable="false" />
+			style="@style/InputEditText.OutputEditText"/>
 	</TableRow>
 	<TableRow android:layout_height="wrap_content"  
 		android:layout_width="fill_parent">
-		<TextView   android:textStyle="bold"
-			android:text="@string/d20text"></TextView>		
+		<TextView android:text="@string/d20text"></TextView>		
 		<EditText android:id="@+id/EditTextNumberD20" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonPlusMinusD20" android:text="@string/plus_text" 
-			android:gravity="center" android:onClick="buttonPlusMinusClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonPlusMinusD20"
+		    style="@style/ButtonPlusMinus"/>
 		<EditText android:id="@+id/EditTextModifierD20" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="2" android:numeric="integer" android:singleLine="true"
-			android:inputType="number" android:hint="@string/zerotext" />
-		<Button android:id="@+id/ButtonRollD20" android:text="@string/roll_text"
-			android:gravity="center" android:onClick="buttonRollClick"></Button>
+			style="@style/InputEditText"/>
+		<Button android:id="@+id/ButtonRollD20"
+			style="@style/ButtonRoll"/>
 		<EditText android:id="@+id/EditTextResultsD20" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:maxLength="4" android:numeric="integer" android:singleLine="true"
-			android:inputType="none" android:hint="@string/zerotext"
-			android:editable="false" />
+			style="@style/InputEditText.OutputEditText"/>
 	</TableRow>
 	
 	<View   android:id="@+id/firstDivider"

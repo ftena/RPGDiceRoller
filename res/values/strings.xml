@@ -30,9 +30,10 @@
 	<string name="roll_text">Roll</string>
 	<string name="view_log">Log</string>
 	<string name="header_die">Die</string>
-	<string name="header_nbr">Number</string>
+	<string name="header_nbr">No.</string>
 	<string name="header_plus_minus">+ -</string>
 	<string name="header_modifier">Modifier</string>  
-	<string name="header_results">Results</string>  
+	<string name="header_results">Result</string>  
 	<string name="header_tabletitle"> </string>
+	<string name="logo">Logo</string>
 </resources>

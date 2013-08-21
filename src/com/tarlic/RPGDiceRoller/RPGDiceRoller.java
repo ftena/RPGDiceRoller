@@ -19,7 +19,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RPGDiceRoller extends Activity {
@@ -220,8 +219,6 @@ public class RPGDiceRoller extends Activity {
 
     	TextView text = (TextView) layout.findViewById(R.id.TextMoreDialog);
     	text.setText(R.string.dialog_more);
-    	ImageView image = (ImageView) layout.findViewById(R.id.ImageMoreDialog);
-    	image.setImageResource(R.drawable.ic_launcher);
 
     	builder = new AlertDialog.Builder(this);
     	builder.setView(layout)    	 

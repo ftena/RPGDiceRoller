@@ -18,62 +18,60 @@ public final class R {
         public static final int list_divider=0x7f020004;
     }
     public static final class id {
-        public static final int ButtonPlusMinusD10=0x7f06001f;
-        public static final int ButtonPlusMinusD100=0x7f060024;
-        public static final int ButtonPlusMinusD12=0x7f060029;
-        public static final int ButtonPlusMinusD20=0x7f06002e;
-        public static final int ButtonPlusMinusD4=0x7f060010;
-        public static final int ButtonPlusMinusD6=0x7f060015;
-        public static final int ButtonPlusMinusD8=0x7f06001a;
-        public static final int ButtonRollD10=0x7f060021;
-        public static final int ButtonRollD100=0x7f060026;
-        public static final int ButtonRollD12=0x7f06002b;
-        public static final int ButtonRollD20=0x7f060030;
-        public static final int ButtonRollD4=0x7f060012;
-        public static final int ButtonRollD6=0x7f060017;
-        public static final int ButtonRollD8=0x7f06001c;
-        public static final int ButtonViewLog=0x7f060033;
-        public static final int Die=0x7f060008;
-        public static final int EditTextModifierD10=0x7f060020;
-        public static final int EditTextModifierD100=0x7f060025;
-        public static final int EditTextModifierD12=0x7f06002a;
-        public static final int EditTextModifierD20=0x7f06002f;
-        public static final int EditTextModifierD4=0x7f060011;
-        public static final int EditTextModifierD6=0x7f060016;
-        public static final int EditTextModifierD8=0x7f06001b;
-        public static final int EditTextNumberD10=0x7f06001e;
-        public static final int EditTextNumberD100=0x7f060023;
-        public static final int EditTextNumberD12=0x7f060028;
-        public static final int EditTextNumberD20=0x7f06002d;
-        public static final int EditTextNumberD4=0x7f06000f;
-        public static final int EditTextNumberD6=0x7f060014;
-        public static final int EditTextNumberD8=0x7f060019;
-        public static final int EditTextResultsD10=0x7f060022;
-        public static final int EditTextResultsD100=0x7f060027;
-        public static final int EditTextResultsD12=0x7f06002c;
-        public static final int EditTextResultsD20=0x7f060031;
-        public static final int EditTextResultsD4=0x7f060013;
-        public static final int EditTextResultsD6=0x7f060018;
-        public static final int EditTextResultsD8=0x7f06001d;
-        public static final int ImageMoreDialog=0x7f060001;
-        public static final int TextMoreDialog=0x7f060002;
-        public static final int TextView00=0x7f06000d;
-        public static final int TextView01=0x7f06000c;
-        public static final int TextView02=0x7f06000b;
-        public static final int TextView03=0x7f06000a;
-        public static final int TextView04=0x7f060009;
-        public static final int dialog_more_layout_root=0x7f060000;
-        public static final int field=0x7f060034;
-        public static final int firstDivider=0x7f060032;
-        public static final int list=0x7f060003;
-        public static final int menu_exit=0x7f060037;
-        public static final int menu_more=0x7f060036;
-        public static final int tableLayout1=0x7f060004;
-        public static final int tableRow1=0x7f060007;
-        public static final int tableRow4=0x7f060005;
-        public static final int textView2=0x7f06000e;
-        public static final int textView9=0x7f060006;
-        public static final int value=0x7f060035;
+        public static final int ButtonPlusMinusD10=0x7f07001d;
+        public static final int ButtonPlusMinusD100=0x7f070022;
+        public static final int ButtonPlusMinusD12=0x7f070027;
+        public static final int ButtonPlusMinusD20=0x7f07002c;
+        public static final int ButtonPlusMinusD4=0x7f07000e;
+        public static final int ButtonPlusMinusD6=0x7f070013;
+        public static final int ButtonPlusMinusD8=0x7f070018;
+        public static final int ButtonRollD10=0x7f07001f;
+        public static final int ButtonRollD100=0x7f070024;
+        public static final int ButtonRollD12=0x7f070029;
+        public static final int ButtonRollD20=0x7f07002e;
+        public static final int ButtonRollD4=0x7f070010;
+        public static final int ButtonRollD6=0x7f070015;
+        public static final int ButtonRollD8=0x7f07001a;
+        public static final int ButtonViewLog=0x7f070031;
+        public static final int Die=0x7f070007;
+        public static final int EditTextModifierD10=0x7f07001e;
+        public static final int EditTextModifierD100=0x7f070023;
+        public static final int EditTextModifierD12=0x7f070028;
+        public static final int EditTextModifierD20=0x7f07002d;
+        public static final int EditTextModifierD4=0x7f07000f;
+        public static final int EditTextModifierD6=0x7f070014;
+        public static final int EditTextModifierD8=0x7f070019;
+        public static final int EditTextNumberD10=0x7f07001c;
+        public static final int EditTextNumberD100=0x7f070021;
+        public static final int EditTextNumberD12=0x7f070026;
+        public static final int EditTextNumberD20=0x7f07002b;
+        public static final int EditTextNumberD4=0x7f07000d;
+        public static final int EditTextNumberD6=0x7f070012;
+        public static final int EditTextNumberD8=0x7f070017;
+        public static final int EditTextResultsD10=0x7f070020;
+        public static final int EditTextResultsD100=0x7f070025;
+        public static final int EditTextResultsD12=0x7f07002a;
+        public static final int EditTextResultsD20=0x7f07002f;
+        public static final int EditTextResultsD4=0x7f070011;
+        public static final int EditTextResultsD6=0x7f070016;
+        public static final int EditTextResultsD8=0x7f07001b;
+        public static final int TextMoreDialog=0x7f070001;
+        public static final int TextView00=0x7f07000c;
+        public static final int TextView01=0x7f07000b;
+        public static final int TextView02=0x7f07000a;
+        public static final int TextView03=0x7f070009;
+        public static final int TextView04=0x7f070008;
+        public static final int dialog_more_layout_root=0x7f070000;
+        public static final int field=0x7f070032;
+        public static final int firstDivider=0x7f070030;
+        public static final int list=0x7f070002;
+        public static final int menu_exit=0x7f070035;
+        public static final int menu_more=0x7f070034;
+        public static final int tableLayout1=0x7f070003;
+        public static final int tableRow1=0x7f070006;
+        public static final int tableRow4=0x7f070004;
+        public static final int textView9=0x7f070005;
+        public static final int value=0x7f070033;
     }
     public static final class layout {
         public static final int dialog_more=0x7f030000;
@@ -83,7 +81,7 @@ public final class R {
         public static final int row_view=0x7f030004;
     }
     public static final class menu {
-        public static final int triforce_menu=0x7f050000;
+        public static final int triforce_menu=0x7f060000;
     }
     public static final class string {
         public static final int activity_log_view=0x7f040001;
@@ -103,6 +101,7 @@ public final class R {
         public static final int header_plus_minus=0x7f040014;
         public static final int header_results=0x7f040016;
         public static final int header_tabletitle=0x7f040017;
+        public static final int logo=0x7f040018;
         public static final int menu_exit=0x7f040003;
         public static final int menu_more=0x7f040002;
         public static final int minus_text=0x7f04000f;
@@ -110,5 +109,34 @@ public final class R {
         public static final int roll_text=0x7f040010;
         public static final int view_log=0x7f040011;
         public static final int zerotext=0x7f04000d;
+    }
+    public static final class style {
+        /** 
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+ API 11 theme customizations can go here. 
+         */
+        public static final int AppBaseTheme=0x7f050000;
+        /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+         */
+        public static final int AppTheme=0x7f050001;
+        public static final int ButtonPlusMinus=0x7f050005;
+        public static final int ButtonRoll=0x7f050006;
+        /**  TableRowTileTheme theme. 
+         */
+        public static final int ColumnTitleTheme=0x7f050002;
+        public static final int InputEditText=0x7f050003;
+        public static final int InputEditText_OutputEditText=0x7f050004;
     }
 }
