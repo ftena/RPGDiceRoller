@@ -6,7 +6,6 @@ import java.util.TreeMap;
 
 import com.tarlic.RPGDiceRoller.ShakeDetector.OnShakeListener;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,7 +24,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class RPGDiceRoller extends Activity {
+import android.support.v7.app.ActionBarActivity;
+
+public class RPGDiceRoller extends ActionBarActivity {
 
 	static final String PLUS = "+";
 	static final String MINUS = "-";
@@ -34,7 +35,9 @@ public class RPGDiceRoller extends Activity {
 	
 	final TreeMap<Date, String> log = new TreeMap<Date, String>(new DateComparator());
 	
-	// The following are used for the shake detection
+	/*
+	 *  The following are used for the shake detection.
+	 */
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
 	private ShakeDetector mShakeDetector;
@@ -45,13 +48,15 @@ public class RPGDiceRoller extends Activity {
     	setContentView(R.layout.main_view);
     	
     	/* Disable the Android OnScreen keyboard when the
-    	 * activity is opened
+    	 * activity is opened.
     	*/
     	
     	 getWindow().setSoftInputMode(
     			    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     	
-    	// Disable the input for some text fields    	 
+    	/*
+    	 * Disable the input for some text fields    	 
+    	 */
     	disableEditTextResults(R.id.EditTextResultsD4);
     	disableEditTextResults(R.id.EditTextResultsD6);
     	disableEditTextResults(R.id.EditTextResultsD8);
@@ -71,8 +76,7 @@ public class RPGDiceRoller extends Activity {
 			public void onShake(int count) {				
 				handleShakeEvent(count);
 			}
-		});
-    	
+		});		
     }
     
     public void disableEditTextResults(int idEditTextResults) {
@@ -84,7 +88,7 @@ public class RPGDiceRoller extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.triforce_menu, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
     
     public void buttonPlusMinusClick(View view)  
@@ -166,36 +170,40 @@ public class RPGDiceRoller extends Activity {
 		}
    }
     
-    public void buttonViewLogClick(View view) {
-			
-			
-			try{  
-		
-			    Intent intent = new Intent(this, LogView.class);
-			    
-			    intent.putExtra("log", log);
-			
-			    startActivity(intent);
-			
-		    } catch(Exception e) {Log.i("Error in RPGDiceRoller class: " , e.toString());}  
-		
+    public void buttonViewLogClick(View view) {			
+    	startLogActivity();		
 	}
-    
+       
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-        case R.id.menu_more:
-            showMore();
+        case R.id.menu_log:
+        	startLogActivity();
+        	return true;
+        case R.id.menu_roll:      
+            rollDice();
             return true;
-        case R.id.menu_exit:
-            showExit();
-            return true;
+        case R.id.menu_help:      
+            showHelp();
+            return true;        
         default:
             return super.onOptionsItemSelected(item);
         }
     }
 
-    private void showMore() {
+    private void startLogActivity() {
+    	try{  
+    		
+		    Intent intent = new Intent(this, LogView.class);
+		    
+		    intent.putExtra("log", log);
+		    
+		    startActivity(intent);
+		
+	    } catch(Exception e) {Log.i("Error in RPGDiceRoller class: " , e.toString());}
+    }
+    
+    private void showHelp() {
        	
     	AlertDialog.Builder builder;
     	AlertDialog alertDialog;
@@ -203,11 +211,11 @@ public class RPGDiceRoller extends Activity {
     	// The next line makes the application crashes
     	//Context mContext = getApplicationContext();
     	LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-    	View layout = inflater.inflate(R.layout.dialog_more,
-    	                               (ViewGroup) findViewById(R.id.dialog_more_layout_root));
+    	View layout = inflater.inflate(R.layout.dialog_help,
+    	                               (ViewGroup) findViewById(R.id.dialog_help_layout_root));
 
-    	TextView text = (TextView) layout.findViewById(R.id.TextMoreDialog);
-    	text.setText(R.string.dialog_more);
+    	TextView text = (TextView) layout.findViewById(R.id.TextHelpDialog);
+    	text.setText(R.string.dialog_help);
 
     	builder = new AlertDialog.Builder(this);
     	builder.setView(layout)    	 
@@ -225,6 +233,8 @@ public class RPGDiceRoller extends Activity {
 
    }
 
+    @SuppressWarnings("unused")
+	@Deprecated
     private void showExit() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -249,6 +259,10 @@ public class RPGDiceRoller extends Activity {
 
     private void handleShakeEvent(int count)
     {	
+    	rollDice();
+    }
+
+    private void rollDice() {
     	// Roll all dice    	
     	roll(R.id.ButtonRollD4);
     	roll(R.id.ButtonRollD6);
@@ -258,7 +272,7 @@ public class RPGDiceRoller extends Activity {
     	roll(R.id.ButtonRollD12);
     	roll(R.id.ButtonRollD20);
     }
-
+    
     private void roll(int id) {
 		
     	if ( id == R.id.ButtonRollD4 )
@@ -301,19 +315,7 @@ public class RPGDiceRoller extends Activity {
     	
 	}
 
-	@Override
-    public void onResume() {
-        super.onResume();
-        // Add the following line to register the Session Manager Listener onResume
-        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
-    }
- 
-    @Override
-    public void onPause() {
-        // Add the following line to unregister the Sensor Manager onPause
-        mSensorManager.unregisterListener(mShakeDetector);
-        super.onPause();
-    }
+
     
     private void showMsg(String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -331,6 +333,20 @@ public class RPGDiceRoller extends Activity {
         alert.show();
    }
     
+	@Override
+    public void onResume() {
+        super.onResume();
+        // Add the following line to register the Session Manager Listener onResume
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);        
+    }
+ 
+    @Override
+    public void onPause() {
+        // Add the following line to unregister the Sensor Manager onPause
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
+    }
+   
     
 };
 

@@ -1,19 +1,25 @@
 package com.tarlic.RPGDiceRoller;
 
 import java.sql.Date;
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-import android.app.ListActivity;
+import com.tarlic.RPGDiceRoller.LogItem;
+import com.tarlic.RPGDiceRoller.LogListAdapter;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
+import android.view.MenuItem;
+import android.widget.ListView;
 
-public class LogView extends ListActivity {
+import android.support.v4.app.NavUtils;
+import android.support.v4.app.TaskStackBuilder;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+
+public class LogView extends ActionBarActivity {
 	
 	/** Called when the activity is first created. */	
 	@SuppressWarnings("unchecked")
@@ -37,47 +43,75 @@ public class LogView extends ListActivity {
 		
 		Map<Date, String> log = null;
 		
-		try{
+		try {
 		
 			log = (Map<Date, String>) (this.getIntent().getSerializableExtra("log"));
 		
 		} catch(ClassCastException e) {Log.i("Error in LogView class: " , e.toString());}  
 		
-		ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
-		
-		// Order the Map (again...), creating the TreeMap that it was filled in RPGDiceRoller.java
+				
+        showList(log);
+        
+        enableActionBar();        
+	}
+	
+    private void enableActionBar() {
+    	/*
+    	 * To enable the app icon as an Up button, call setDisplayHomeAsUpEnabled().
+    	 */
+    	ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+	}
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        // Respond to the action bar's Up/Home button
+        case android.R.id.home:
+            Intent upIntent = NavUtils.getParentActivityIntent(this);
+            if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
+                // This activity is NOT part of this app's task, so create a new task
+                // when navigating up, with a synthesized back stack.
+                TaskStackBuilder.create(this)
+                        // Add all of this activity's parents to the back stack
+                        .addNextIntentWithParentStack(upIntent)
+                        // Navigate up to the closest parent
+                        .startActivities();
+            } else {
+                // This activity is part of this app's task, so simply
+                // navigate up to the logical parent activity.
+                NavUtils.navigateUpTo(this, upIntent);
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+	private void showList(Map<Date, String> log) {
+    	
+    	/*
+		 *  Order the Map (again...), creating the TreeMap that it was filled in RPGDiceRoller.java
+		 */
 		
 		TreeMap<Date, String> orderedLog = new TreeMap<Date, String>(new DateComparator());
 			for(Map.Entry<Date, String> entry : log.entrySet()) {
 			orderedLog.put(entry.getKey(), entry.getValue());
 		}
 		
+		ArrayList<LogItem> logItems = new ArrayList<LogItem>();
+			
 		for(TreeMap.Entry<Date, String> entry : orderedLog.entrySet()) {
 			
-			HashMap<String,String> temp = new HashMap<String,String>();
+			LogItem li = new LogItem();			
+			li.setText(entry.getValue());			
+			li.setDate(entry.getKey());
 			
-			  Date key = entry.getKey();
-			  String value = entry.getValue();
-  
-			  temp.put("field", DateFormat.getDateTimeInstance().format(key));
-		        temp.put("value", value);
-		        list.add(temp);
-			}
-		
-        showList(list);
-		
-	}
-	
-    private void showList(ArrayList<HashMap<String,String>> list) {
+			logItems.add(li);
+			
+		}
     	
-   	 ListAdapter adapter = new SimpleAdapter(
-                this, // Context                 
-                list,                                            
-                R.layout.row_view,  // Specify the row template to use
-                new String[] { "field", "value" },           
-                new int[] {R.id.field, R.id.value});  // Parallel array of which template objects to bind to those columns.
-        
-        setListAdapter(adapter);
+    	ListView lv = (ListView) findViewById(R.id.itemlist);
+    	
+    	lv.setAdapter(new LogListAdapter(this, logItems));
    }
 	
 };

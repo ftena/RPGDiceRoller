@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">RPG Dice Roller</string>	
-	<string name="activity_log_view">Log Viewer</string>
-	<string name="menu_more">More</string>
-	<string name="menu_exit">Exit</string>	
-	<string name="dialog_more">+ Type the number of dice to roll in \"Number\" column
-								\n+ Type the modifier (optional) to be added or subtracted in \"Modifier\" column
-								\n+ Note: to add or subtract the modifier, use the \"+/-\" button
-								\n+ Press \"Roll\" or shake the device to get the result as if you rolled the dice in the real world ;)
+
+    <string name="app_name">RPG Dice Roller</string>
+    <string name="activity_log_view">Log Viewer</string>
+    <string name="menu_log">Log</string>
+    <string name="menu_help">Help</string>    
+    <string name="menu_roll">Roll dice</string>
+    <string name="dialog_help">+ Type the number of dice to roll in \"Number\" column.
+								\n+ Type the modifier (optional) to be added or subtracted in \"Modifier\" column.
+								\n+ Note: to add or subtract the modifier, use the \"+/-\" button.
+								\n+ Press each \"Roll\" button or shake the device to get the result as if you rolled the dice in the real world ;)
 								\n
-								\n+ Using the \"Log\" button, you can review your latest rolls
+								\n+ You can review your latest rolls using the \"Log\" menu item.
+								\n+ You can roll all the dice using the \"Roll dice\" menu item.
 								\n
 								\n Thank you very much for installing the app! :)
 								\n More info @ www.tarlic.com</string>
-	<string name="dialog_exit">Are you sure you want to exit?</string>
-	<string name="d4text">4</string>
-	<string name="d6text">6</string>
-	<string name="d8text">8</string>
-	<string name="d10text">10</string>
-	<string name="d100text">100</string>
-	<string name="d12text">12</string>
-	<string name="d20text">20</string>
-	<string name="zerotext">0</string>
-	<string name="plus_text">+</string>	
-	<string name="minus_text">-</string>
-	<string name="roll_text">Roll</string>
-	<string name="view_log">Log</string>
-	<string name="header_die">Die</string>
-	<string name="header_nbr">No.</string>
-	<string name="header_plus_minus">+ -</string>
-	<string name="header_modifier">Modifier</string>  
-	<string name="header_results">Result</string>  
-	<string name="header_tabletitle"> </string>
-	<string name="logo">Logo</string>
+    <string name="dialog_exit">Are you sure you want to exit?</string>
+    <string name="d4text">4</string>
+    <string name="d6text">6</string>
+    <string name="d8text">8</string>
+    <string name="d10text">10</string>
+    <string name="d100text">100</string>
+    <string name="d12text">12</string>
+    <string name="d20text">20</string>
+    <string name="zerotext">0</string>
+    <string name="plus_text">+</string>
+    <string name="minus_text">-</string>
+    <string name="roll_text">Roll</string>
+    <string name="view_log">Log</string>
+    <string name="header_die">Die</string>
+    <string name="header_nbr">No.</string>
+    <string name="header_plus_minus">+ -</string>
+    <string name="header_modifier">Modifier</string>
+    <string name="header_results">Result</string>
+    <string name="header_tabletitle"></string>
+    <string name="logo">Logo</string>
+    <string name="default_text">Default text</string>
+
 </resources>

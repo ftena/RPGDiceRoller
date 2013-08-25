@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	android:versionName="2.3" android:versionCode="9" package="com.tarlic.RPGDiceRoller">
+    package="com.tarlic.RPGDiceRoller"
+    android:versionCode="10"
+    android:versionName="2.3" >
 
-<uses-sdk android:minSdkVersion="7" 
-          android:targetSdkVersion="17"
-          android:maxSdkVersion="17" />
+    <uses-sdk
+        android:maxSdkVersion="17"
+        android:minSdkVersion="7"
+        android:targetSdkVersion="17" />
 
-	<uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
 
-	<application android:label="@string/app_name" android:icon="@drawable/ic_launcher"
-	    android:allowBackup="true">
-	
-		<!--
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+
+        <!--
 			Por cada Activity instanciada durante la ejecución de la aplicación,
 			es necesario un <activity> ... </activity>
-		-->
+        -->
 
-		<activity android:name=".RPGDiceRoller" android:label="@string/app_name" android:theme="@style/AppBaseTheme">
-		
-				<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		
-		</activity>
-		
-		<activity android:name=".LogView" android:label="@string/activity_log_view" android:theme="@style/AppBaseTheme"></activity>
+        <activity
+            android:name="com.tarlic.RPGDiceRoller.RPGDiceRoller"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/AppBaseTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-	</application>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tarlic.RPGDiceRoller.LogView"
+            android:label="@string/activity_log_view"
+            android:theme="@style/AppBaseTheme"
+            android:parentActivityName="com.tarlic.RPGDiceRoller.RPGDiceRoller" >
         
-</manifest> 
+	        <!-- Parent activity meta-data to support API level 7+ -->
+	        <meta-data
+	            android:name="android.support.PARENT_ACTIVITY"
+	            android:value="com.tarlic.RPGDiceRoller.RPGDiceRoller" />
+        
+        </activity>
+    </application>
 
-
+</manifest>
