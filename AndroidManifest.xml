@@ -34,6 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name="com.tarlic.RPGDiceRoller.LogView"
             android:label="@string/activity_log_view"
@@ -46,6 +47,7 @@
 	            android:value="com.tarlic.RPGDiceRoller.RPGDiceRoller" />
         
         </activity>
+        
     </application>
 
 </manifest>
