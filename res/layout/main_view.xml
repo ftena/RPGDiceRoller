@@ -72,6 +72,62 @@
             </TextView>
         </TableRow>
 
+         <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d2text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD2"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD2"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD2"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD2"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD2"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+        
+         <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d3text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD3"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD3"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD3"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD3"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD3"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+        
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >

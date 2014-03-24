@@ -17,6 +17,8 @@
 								\n Thank you very much for installing the app! :)
 								\n More info @ www.tarlic.com</string>
     <string name="dialog_exit">Are you sure you want to exit?</string>
+    <string name="d2text">2</string>
+    <string name="d3text">3</string>
     <string name="d4text">4</string>
     <string name="d6text">6</string>
     <string name="d8text">8</string>

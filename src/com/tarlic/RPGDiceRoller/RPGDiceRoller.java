@@ -57,6 +57,8 @@ public class RPGDiceRoller extends ActionBarActivity {
     	/*
     	 * Disable the input for some text fields    	 
     	 */
+    	disableEditTextResults(R.id.EditTextResultsD2);
+    	disableEditTextResults(R.id.EditTextResultsD3);
     	disableEditTextResults(R.id.EditTextResultsD4);
     	disableEditTextResults(R.id.EditTextResultsD6);
     	disableEditTextResults(R.id.EditTextResultsD8);
@@ -100,8 +102,7 @@ public class RPGDiceRoller extends ActionBarActivity {
     }  
         
     public void buttonRollClick (View view)
-    {
-    	
+    {    	
     	roll(view.getId());
     }    
     
@@ -263,7 +264,9 @@ public class RPGDiceRoller extends ActionBarActivity {
     }
 
     private void rollDice() {
-    	// Roll all dice    	
+    	// Roll all dice
+    	roll(R.id.ButtonRollD2);
+    	roll(R.id.ButtonRollD3);
     	roll(R.id.ButtonRollD4);
     	roll(R.id.ButtonRollD6);
     	roll(R.id.ButtonRollD8);
@@ -274,8 +277,16 @@ public class RPGDiceRoller extends ActionBarActivity {
     }
     
     private void roll(int id) {
-		
-    	if ( id == R.id.ButtonRollD4 )
+    	if ( id == R.id.ButtonRollD2 ) {	
+    		processButtonRollClick(R.id.EditTextNumberD2, R.id.EditTextModifierD2,
+    					R.id.EditTextResultsD2, Integer.parseInt(getString(R.string.d2text)),
+    					R.id.ButtonPlusMinusD2);
+    	} else if ( id == R.id.ButtonRollD3 )
+    	{	
+    		processButtonRollClick(R.id.EditTextNumberD3, R.id.EditTextModifierD3,
+    					R.id.EditTextResultsD3, Integer.parseInt(getString(R.string.d3text)),
+    					R.id.ButtonPlusMinusD3);    	
+    	} else if ( id == R.id.ButtonRollD4 )
     	{	
     		processButtonRollClick(R.id.EditTextNumberD4, R.id.EditTextModifierD4,
     					R.id.EditTextResultsD4, Integer.parseInt(getString(R.string.d4text)),
@@ -314,8 +325,6 @@ public class RPGDiceRoller extends ActionBarActivity {
     	}
     	
 	}
-
-
     
     private void showMsg(String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
