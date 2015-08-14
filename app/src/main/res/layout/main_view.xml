@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical" >
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="*"
+        android:stretchColumns="*" >
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="6"
+                android:gravity="center"
+                android:text="@string/header_tabletitle"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="serif" >
+            </TextView>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/Die"
+                style="@style/ColumnTitleTheme"
+                android:text="@string/header_die" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/TextView04"
+                style="@style/ColumnTitleTheme"
+                android:text="@string/header_nbr" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/TextView03"
+                style="@style/ColumnTitleTheme"
+                android:text="@string/header_plus_minus" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/TextView02"
+                style="@style/ColumnTitleTheme"
+                android:text="@string/header_modifier" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/TextView01"
+                style="@style/ColumnTitleTheme"
+                android:textIsSelectable="false" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/TextView00"
+                style="@style/ColumnTitleTheme"
+                android:text="@string/header_results" >
+            </TextView>
+        </TableRow>
+
+         <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d2text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD2"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD2"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD2"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD2"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD2"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+        
+         <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d3text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD3"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD3"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD3"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD3"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD3"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+        
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d4text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD4"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD4"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD4"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD4"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD4"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d6text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD6"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD6"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD6"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD6"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD6"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d8text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD8"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD8"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD8"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD8"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD8"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d10text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD10"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD10"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD10"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD10"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD10"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d12text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD12"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD12"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD12"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD12"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD12"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d20text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD20"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD20"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD20"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD20"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD20"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView android:text="@string/d100text" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/EditTextNumberD100"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonPlusMinusD100"
+                style="@style/ButtonPlusMinus" />
+
+            <EditText
+                android:id="@+id/EditTextModifierD100"
+                style="@style/InputEditText" />
+
+            <Button
+                android:id="@+id/ButtonRollD100"
+                style="@style/ButtonRoll" />
+
+            <EditText
+                android:id="@+id/EditTextResultsD100"
+                style="@style/InputEditText.OutputEditText" />
+        </TableRow>
+
+		<!-- 
+        <View
+            android:id="@+id/firstDivider"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#808080" />
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/ButtonViewLog"
+                android:layout_span="6"
+                android:onClick="buttonViewLogClick"
+                android:text="@string/view_log" >
+            </Button>
+        </TableRow>
+ 		-->
+ 
+    </TableLayout>
+
+</ScrollView>

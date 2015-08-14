@@ -1,0 +1,51 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <!-- TableRowTileTheme theme. -->
+    <style name="ColumnTitleTheme" parent="AppBaseTheme">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="InputEditText" parent="AppBaseTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:maxLength">2</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:inputType">number</item>
+        <item name="android:hint">@string/zerotext</item>
+    </style>
+
+    <style name="InputEditText.OutputEditText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLength">4</item>
+        <item name="android:inputType">none</item>
+    </style>
+
+    <style name="ButtonPlusMinus">
+        <item name="android:text">@string/plus_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:onClick">buttonPlusMinusClick</item>
+    </style>
+
+    <style name="ButtonRoll">
+        <item name="android:text">@string/roll_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:onClick">buttonRollClick</item>
+    </style>
+
+</resources>
