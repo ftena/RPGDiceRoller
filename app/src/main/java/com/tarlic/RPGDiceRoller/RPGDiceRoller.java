@@ -24,9 +24,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
-public class RPGDiceRoller extends ActionBarActivity {
+public class RPGDiceRoller extends AppCompatActivity {
 
 	static final String PLUS = "+";
 	static final String MINUS = "-";

@@ -17,9 +17,9 @@ import android.widget.ListView;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
-public class LogView extends ActionBarActivity {
+public class LogView extends AppCompatActivity {
 	
 	/** Called when the activity is first created. */	
 	@SuppressWarnings("unchecked")

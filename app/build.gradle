@@ -1,23 +1,28 @@
 apply plugin: 'com.android.application'
-
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
-
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.tarlic.RPGDiceRoller"
-        minSdkVersion 7
-        targetSdkVersion 22
+        minSdkVersion 16
+        targetSdkVersion 27
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+    dexOptions {
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    productFlavors {
+    }
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
 }
