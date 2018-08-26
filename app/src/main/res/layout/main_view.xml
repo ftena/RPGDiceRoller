@@ -8,14 +8,16 @@
         android:id="@+id/tableLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:shrinkColumns="*"
-        android:stretchColumns="*" >
+        android:stretchColumns="*">
 
         <TableRow
             android:id="@+id/tableRow4"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
+            android:gravity="center_horizontal">
 
             <TextView
                 android:id="@+id/textView9"
@@ -26,58 +28,50 @@
                 android:text="@string/header_tabletitle"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:typeface="serif" >
-            </TextView>
+                android:typeface="serif"></TextView>
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/Die"
                 style="@style/ColumnTitleTheme"
-                android:text="@string/header_die" >
-            </TextView>
+                android:text="@string/header_die"></TextView>
 
             <TextView
                 android:id="@+id/TextView04"
                 style="@style/ColumnTitleTheme"
-                android:text="@string/header_nbr" >
-            </TextView>
+                android:text="@string/header_nbr"></TextView>
 
             <TextView
                 android:id="@+id/TextView03"
                 style="@style/ColumnTitleTheme"
-                android:text="@string/header_plus_minus" >
-            </TextView>
+                android:text="@string/header_plus_minus"></TextView>
 
             <TextView
                 android:id="@+id/TextView02"
                 style="@style/ColumnTitleTheme"
-                android:text="@string/header_modifier" >
-            </TextView>
+                android:text="@string/header_modifier"></TextView>
 
             <TextView
                 android:id="@+id/TextView01"
                 style="@style/ColumnTitleTheme"
-                android:textIsSelectable="false" >
-            </TextView>
+                android:textIsSelectable="false"></TextView>
 
             <TextView
                 android:id="@+id/TextView00"
                 style="@style/ColumnTitleTheme"
-                android:text="@string/header_results" >
-            </TextView>
+                android:text="@string/header_results"></TextView>
         </TableRow>
 
-         <TableRow
+        <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
-            <TextView android:text="@string/d2text" >
-            </TextView>
+            <TextView android:text="@string/d2text"></TextView>
 
             <EditText
                 android:id="@+id/EditTextNumberD2"
@@ -99,13 +93,12 @@
                 android:id="@+id/EditTextResultsD2"
                 style="@style/InputEditText.OutputEditText" />
         </TableRow>
-        
-         <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
 
-            <TextView android:text="@string/d3text" >
-            </TextView>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView android:text="@string/d3text"></TextView>
 
             <EditText
                 android:id="@+id/EditTextNumberD3"
@@ -127,13 +120,12 @@
                 android:id="@+id/EditTextResultsD3"
                 style="@style/InputEditText.OutputEditText" />
         </TableRow>
-        
+
         <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
-            <TextView android:text="@string/d4text" >
-            </TextView>
+            <TextView android:text="@string/d4text"></TextView>
 
             <EditText
                 android:id="@+id/EditTextNumberD4"
@@ -158,10 +150,9 @@
 
         <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
-            <TextView android:text="@string/d6text" >
-            </TextView>
+            <TextView android:text="@string/d6text"></TextView>
 
             <EditText
                 android:id="@+id/EditTextNumberD6"
@@ -186,10 +177,9 @@
 
         <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
-            <TextView android:text="@string/d8text" >
-            </TextView>
+            <TextView android:text="@string/d8text"></TextView>
 
             <EditText
                 android:id="@+id/EditTextNumberD8"
@@ -214,10 +204,9 @@
 
         <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
-            <TextView android:text="@string/d10text" >
-            </TextView>
+            <TextView android:text="@string/d10text"></TextView>
 
             <EditText
                 android:id="@+id/EditTextNumberD10"
@@ -242,10 +231,9 @@
 
         <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
-            <TextView android:text="@string/d12text" >
-            </TextView>
+            <TextView android:text="@string/d12text"></TextView>
 
             <EditText
                 android:id="@+id/EditTextNumberD12"
@@ -270,10 +258,9 @@
 
         <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
-            <TextView android:text="@string/d20text" >
-            </TextView>
+            <TextView android:text="@string/d20text"></TextView>
 
             <EditText
                 android:id="@+id/EditTextNumberD20"
@@ -298,10 +285,9 @@
 
         <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
-            <TextView android:text="@string/d100text" >
-            </TextView>
+            <TextView android:text="@string/d100text"></TextView>
 
             <EditText
                 android:id="@+id/EditTextNumberD100"
@@ -324,7 +310,7 @@
                 style="@style/InputEditText.OutputEditText" />
         </TableRow>
 
-		<!-- 
+        <!--
         <View
             android:id="@+id/firstDivider"
             android:layout_width="fill_parent"
@@ -343,7 +329,7 @@
             </Button>
         </TableRow>
  		-->
- 
+
     </TableLayout>
 
 </ScrollView>
