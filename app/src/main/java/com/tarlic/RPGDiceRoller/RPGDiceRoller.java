@@ -33,7 +33,7 @@ public class RPGDiceRoller extends AppCompatActivity {
 	
 	static final String ZERO = "0";
 	
-	final TreeMap<Date, String> log = new TreeMap<Date, String>(new DateComparator());
+	final TreeMap<Date, String> log;
 	
 	/*
 	 *  The following are used for the shake detection.
@@ -41,8 +41,12 @@ public class RPGDiceRoller extends AppCompatActivity {
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
 	private ShakeDetector mShakeDetector;
-	
-    @Override
+
+	public RPGDiceRoller() {
+		log = new TreeMap<>(new DateComparator());
+	}
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {    	
     	super.onCreate(savedInstanceState);    	
     	setContentView(R.layout.main_view);
@@ -111,11 +115,11 @@ public class RPGDiceRoller extends AppCompatActivity {
     									int idButtonPlusMinus) {
     	
     	Random r = new Random();
-    	
-    	Integer number = 0;
-    	Integer modifier = 0;
-    	Integer results = 0;
-    	Integer resultsTmp = 0;
+
+		int number = 0;
+    	int modifier = 0;
+    	int results = 0;
+    	int resultsTmp = 0;
     	
     	EditText editTextNumber = (EditText) findViewById(idEditTextNumber);
 		EditText editTextModifier = (EditText) findViewById(idEditTextModifier);
@@ -355,7 +359,5 @@ public class RPGDiceRoller extends AppCompatActivity {
         mSensorManager.unregisterListener(mShakeDetector);
         super.onPause();
     }
-   
-    
 };
 

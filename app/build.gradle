@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.tarlic.RPGDiceRoller"
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 29
     }
     buildTypes {
         release {
@@ -25,4 +26,8 @@ android {
 
 dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
