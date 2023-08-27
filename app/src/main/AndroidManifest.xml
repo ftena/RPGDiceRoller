@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tarlic.RPGDiceRoller"
-    android:versionCode="15"
-    android:versionName="2.6" >
+    android:versionCode="16"
+    android:versionName="2.7" >
 
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
@@ -22,7 +21,8 @@
             android:name="com.tarlic.RPGDiceRoller.RPGDiceRoller"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:theme="@style/AppBaseTheme" >
+            android:theme="@style/AppBaseTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

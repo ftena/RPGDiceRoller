@@ -181,19 +181,18 @@ public class RPGDiceRoller extends AppCompatActivity {
        
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-        switch (item.getItemId()) {
-        case R.id.menu_log:
-        	startLogActivity();
-        	return true;
-        case R.id.menu_roll:      
-            rollDice();
-            return true;
-        case R.id.menu_help:      
-            showHelp();
-            return true;        
-        default:
-            return super.onOptionsItemSelected(item);
-        }
+		if (item.getItemId() == R.id.menu_log) {
+			startLogActivity();
+			return true;
+		} else if (item.getItemId() == R.id.menu_roll) {
+			rollDice();
+			return true;
+		} else if (item.getItemId() == R.id.menu_help) {
+			showHelp();
+			return true;
+		} else {
+			return super.onOptionsItemSelected(item);
+		}
     }
 
     private void startLogActivity() {
