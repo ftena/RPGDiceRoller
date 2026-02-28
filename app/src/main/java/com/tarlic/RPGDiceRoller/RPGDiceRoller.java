@@ -58,19 +58,6 @@ public class RPGDiceRoller extends AppCompatActivity {
     	 getWindow().setSoftInputMode(
     			    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     	
-    	/*
-    	 * Disable the input for some text fields    	 
-    	 */
-    	disableEditTextResults(R.id.EditTextResultsD2);
-    	disableEditTextResults(R.id.EditTextResultsD3);
-    	disableEditTextResults(R.id.EditTextResultsD4);
-    	disableEditTextResults(R.id.EditTextResultsD6);
-    	disableEditTextResults(R.id.EditTextResultsD8);
-    	disableEditTextResults(R.id.EditTextResultsD10);
-    	disableEditTextResults(R.id.EditTextResultsD100);
-    	disableEditTextResults(R.id.EditTextResultsD12);
-    	disableEditTextResults(R.id.EditTextResultsD20);
-    	
 		// ShakeDetector initialization
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		mAccelerometer = mSensorManager
@@ -84,13 +71,7 @@ public class RPGDiceRoller extends AppCompatActivity {
 			}
 		});		
     }
-    
-    public void disableEditTextResults(int idEditTextResults) {
-    	EditText editTextResults = (EditText) findViewById(idEditTextResults);
-    	
-    	editTextResults.setKeyListener(null);
-    }
-    
+
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.triforce_menu, menu);
