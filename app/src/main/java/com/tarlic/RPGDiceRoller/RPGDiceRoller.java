@@ -20,16 +20,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import android.support.v7.app.AppCompatActivity;
 
 public class RPGDiceRoller extends AppCompatActivity {
 
-	static final String PLUS = "+";
-	static final String MINUS = "-";
+	static final String TAG_PLUS = "plus";
+	static final String TAG_MINUS = "minus";
 	
 	static final String ZERO = "0";
 	
@@ -80,10 +80,16 @@ public class RPGDiceRoller extends AppCompatActivity {
     
     public void buttonPlusMinusClick(View view)  
     {  
-    	Button b = (Button)view;
+    	ImageButton b = (ImageButton)view;
     	
-    	if ( b.getText().toString().equals(PLUS)) { b.setText(R.string.minus_text); }
-    	else if ( b.getText().toString().equals(MINUS)) { b.setText(R.string.plus_text); }    
+    	if ( b.getTag().equals(TAG_PLUS)) { 
+            b.setImageResource(R.drawable.ic_remove);
+            b.setTag(TAG_MINUS);
+        }
+    	else { 
+            b.setImageResource(R.drawable.ic_add);
+            b.setTag(TAG_PLUS);
+        }    
     }  
         
     public void buttonRollClick (View view)
@@ -105,7 +111,7 @@ public class RPGDiceRoller extends AppCompatActivity {
     	EditText editTextNumber = (EditText) findViewById(idEditTextNumber);
 		EditText editTextModifier = (EditText) findViewById(idEditTextModifier);
 		EditText editTextResults = (EditText) findViewById(idEditTextResults);   		
-		Button buttonPlusMinus = (Button) findViewById(idButtonPlusMinus);
+		ImageButton buttonPlusMinus = (ImageButton) findViewById(idButtonPlusMinus);
 			    		
 		try {
 			number = Integer.parseInt(editTextNumber.getText().toString());			
@@ -129,22 +135,22 @@ public class RPGDiceRoller extends AppCompatActivity {
 			}
 			
 			// Check if the modifier is to add or subtract
-			if (buttonPlusMinus.getText().toString().equals(PLUS))
+			if (buttonPlusMinus.getTag().equals(TAG_PLUS))
 				results = results + modifier;
-			else if (buttonPlusMinus.getText().toString().equals(MINUS))
+			else if (buttonPlusMinus.getTag().equals(TAG_MINUS))
 				results = results - modifier;
-			else showMsg(buttonPlusMinus.getText().toString());
+			else showMsg(buttonPlusMinus.getTag().toString());
 					
 			editTextResults.setText(String.valueOf(results));
 			
 			String logString = null;
 			
 			// Begin the log and check if the button has plus or minus sign		
-			if (buttonPlusMinus.getText().toString().equals(PLUS))
+			if (buttonPlusMinus.getTag().equals(TAG_PLUS))
 				logString = String.valueOf(number) + "d" + String.valueOf(dieType) + " + ";						
-			else if (buttonPlusMinus.getText().toString().equals(MINUS))
+			else if (buttonPlusMinus.getTag().equals(TAG_MINUS))
 				logString = String.valueOf(number) + "d" + String.valueOf(dieType) + " - ";		
-			else showMsg(buttonPlusMinus.getText().toString());
+			else showMsg(buttonPlusMinus.getTag().toString());
 			
 			// if modifier is blank, it is necessary to add the 0 manually
 			logString = logString + String.valueOf(modifier) + " = " + String.valueOf(results);
@@ -340,4 +346,3 @@ public class RPGDiceRoller extends AppCompatActivity {
         super.onPause();
     }
 };
-

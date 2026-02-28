@@ -20,6 +20,8 @@
     <!-- TableRowTileTheme theme. -->
     <style name="ColumnTitleTheme" parent="AppBaseTheme">
         <item name="android:gravity">center</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="InputEditText" parent="AppBaseTheme">
@@ -28,46 +30,36 @@
         <item name="android:singleLine">true</item>
         <item name="android:inputType">number</item>
         <item name="android:hint">@string/zerotext</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="InputEditText.OutputEditText">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:maxLength">4</item>
         <item name="android:inputType">none</item>
-    </style>
-
-    <style name="ButtonPlusMinus">
-        <item name="android:text">@string/plus_text</item>
-        <item name="android:gravity">center</item>
-        <item name="android:onClick">buttonPlusMinusClick</item>
-    </style>
-
-    <style name="ButtonRoll">
-        <item name="android:text">@string/roll_text</item>
-        <item name="android:gravity">center</item>
-        <item name="android:onClick">buttonRollClick</item>
-    </style>
-
-
-    <!-- <style name="InputEditText" parent="AppBaseTheme">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:maxLength">2</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:inputType">number</item>
-        <item name="android:hint">@string/zerotext</item>
-        <item name="android:gravity">center</item>
-        <item name="android:padding">8dp</item>
-    </style> -->
-
-
-    <!-- <style name="InputEditText.OutputEditText">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:maxLength">4</item>
-        <item name="android:inputType">none</item>
         <item name="android:focusable">false</item>
-        <item name="android:cursorVisible">false</item>
+        <item name="android:clickable">false</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:textColor">?android:attr/colorAccent</item>
         <item name="android:textStyle">bold</item>
-    </style> -->
+    </style>
+
+    <style name="IconButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="ButtonPlusMinus" parent="IconButton">
+        <item name="android:src">@drawable/ic_add</item>
+        <item name="android:onClick">buttonPlusMinusClick</item>
+        <item name="android:tag">plus</item>
+    </style>
+
+    <style name="ButtonRoll" parent="IconButton">
+        <item name="android:src">@drawable/ic_die</item>
+        <item name="android:onClick">buttonRollClick</item>
+    </style>
+
 </resources>
